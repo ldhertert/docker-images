@@ -14,16 +14,16 @@ RUN microdnf update \
         podman \
         which
 
-RUN wget -O terraform.zip "https://releases.hashicorp.com/terraform/1.3.0/terraform_1.3.0_linux_amd64.zip" && \
+RUN wget -q -O terraform.zip "https://releases.hashicorp.com/terraform/1.3.0/terraform_1.3.0_linux_amd64.zip" && \
     unzip terraform.zip && \
     rm terraform.zip && \
     mv terraform /usr/local/bin/terraform && \
     chmod +x /usr/local/bin/terraform
 
-RUN wget -O /usr/local/bin/yq "https://github.com/mikefarah/yq/releases/download/v4.27.2/yq_linux_amd64" && \
+RUN wget -q -O /usr/local/bin/yq "https://github.com/mikefarah/yq/releases/download/v4.27.2/yq_linux_amd64" && \
     chmod +x /usr/local/bin/yq
 
-RUN wget -O /usr/local/bin/http "https://github.com/httpie/httpie/releases/download/3.2.1/http" && \
+RUN wget -q -O /usr/local/bin/http "https://github.com/httpie/httpie/releases/download/3.2.1/http" && \
     chmod +x /usr/local/bin/http
 
 RUN microdnf install yum \
